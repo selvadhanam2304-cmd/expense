@@ -35,7 +35,7 @@ export async function proxy(request: NextRequest) {
       }
     )
 
-    // Only try to get user if we have valid keys
+    /* Temporarily bypassing for debug
     if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
       const { data: { user } } = await supabase.auth.getUser()
 
@@ -51,6 +51,7 @@ export async function proxy(request: NextRequest) {
         return NextResponse.redirect(new URL('/dashboard', request.url))
       }
     }
+    */
   } catch (e) {
     console.error('Middleware error:', e)
   }
